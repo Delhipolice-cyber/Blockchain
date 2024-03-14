@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+    background-color: #fff2f0;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Set width to 100% */
+}
+
+    .back-button, .recent-transaction-button {
+        width: 25px; /* Increase width of the buttons */
+        height: 20px; /* Increase height of the buttons */
+        cursor: pointer;
+    }
+    .back-button {
+        transform: rotate(180deg); /* Rotate the back button */
+    }
+    .money-logo {
+        max-width: 50px; /* Adjust size as needed */
+        height: auto;
+        margin-left: 30px; /* Add margin to create space from back button */
+        margin-right: 10px; /* Add margin to create space from account text */
+    }
+    .account-text {
+        margin-right: 10px;
+    }
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+    .dots {
+        font-size: 36px; /* Increase font size for three dots */
+        color: orange; /* Set color to orange */
+    }
+    .content-container {
+        background-color: #fff; /* Set background color */
+        padding: 20px;
+        border-radius: 30px; /* Round the corners */
+        margin: 20px;
+    }
+    .info-left {
+        float: left;
+    }
+    .info-right {
+        float: right;
+    }
+    hr {
+        width: 100%; /* Set width to 100% to span the full width */
+    }
+    p.orange-text {
+        color: orange;
+    }
+    p {
+        color: black;
+    }
+    .center-text {
+        text-align: center;
+    }
+    .No-Payment {
+        text-align: center;
+    }
+    .orange-background {
+    background-color: #fff2f0;
+    width: calc(100% + 20px);
+    height: 40%;
+    margin-top: -20px;
+    margin-left: -5px;
+    margin-right: -10px; /* Add right margin */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+
+    .recent-transaction-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end; /* Align items to bottom */
+        margin-top: 20px;
+    }
+    .recent-transaction-text {
+        margin-left: 30px;
+        color: purple; /* Set text color to purple */
+        font-size: 24px; /* Adjust font size */
+        margin-bottom: 5px; /* Add space between text and button */
+    }
+    .recent-transaction-button {
+        width: 40px; /* Increase width of the buttons */
+        height: 40px; /* Increase height of the buttons */
+        cursor: pointer;
+        transition: transform 0.3s; /* Add transition effect */
+    }
+    .rotate {
+        transform: rotate(90deg); /* Rotate the button */
+    }
+
+    .transaction-details hr {
+        margin: 10px 0; /* Adjust margin */
+    }
+    .transaction-details {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-family: Arial, sans-serif;
+    color: black;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction-details p {
+    margin: 5px 0;
+}
+
+.amount-date {
+    display: flex;
+    justify-content: space-between;
+}
+
+.transaction-amount {
+    text-align: right;
+}
+
+.balance {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align the balance to the right */
+}
+
+.balance-description {
+    margin-right: 10px;
+}
+
+. balance-amount{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="logo-container">
+        <img class="back-button" src="https://iridic-investigator.000webhostapp.com/Icons/arrow-right.864d48a943e4093e.svg" alt="Back" onclick="goBack()">
+        <img class="money-logo" src="https://iridic-investigator.000webhostapp.com/Icons/accounts_fill_icon.3bd345409f8966ec.svg" alt="Money Logo">
+        <span class="account-text">Account</span>
+    </div>
+    <span class="dots">&#x22EE;</span>
+</div>
+
+<div class="orange-background">
+    <div class="content-container">
+        <div class="info-left">
+            <p>ANIT SINGH</p>
+            <p>A/C no. 123456789</p><br>
+            <p>Available balance</p>
+            <p>₹ 0.43</p>
+            <br>
+            <p class="center-text orange-text">Account Statement</p>
+            
+        </div>
+        <div class="info-right">
+            <p class="orange-text">Account details</p><br><br><br>
+            <p class="orange-text">View breakup</p>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+
+<div class="No-Payment">
+    <p>No Upcoming payments for this account</p>
+</div>
+
+<!-- Recent Transaction Button -->
+<div class="recent-transaction-container">
+    <p class="recent-transaction-text">Recent Transactions</p>
+    <img class="recent-transaction-button" src="https://iridic-investigator.000webhostapp.com/Icons/arrow-right.864d48a943e4093e.svg" alt="Recent Transactions" onclick="toggleRotate()">
+</div>
+
+
+<!-- Transaction Details -->
+<div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">-₹25,312.00</p>
+        <p class="transaction-date">14 Mar 2024</p>
+    </div>
+    <p>UPI/DR/407418758709/</p>
+    <p>SACHIN SUBHASH RATHOD/UTKS/</p>
+    <p>1615020000000175/Sent </p>
+    <p>from Paytm Jaipur Centr</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 0.43</p> <!-- Adjust the actual available balance here -->
+    </div>
+</div>
+
+
+<hr>
+
+<!-- Additional Transactions -->
+<div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">+₹ 25,295.00</p>
+        <p class="transaction-date">14 Mar 2024</p>
+    </div>
+    <p>UPI-CR AJD FROM</p>
+    <p>AXB-U2-406428990604/</p>
+    <p>AUB</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 25.312.43</p>
+        </div>
+</div>
+        <hr>
+
+<div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">-₹ 30.00</p>
+        <p class="transaction-date">13 Mar 2024</p>
+    </div>
+    <p>UPI/DR/443916948204/</p>
+    <p>SHAMBHU PAL/UTIB/</p>
+    <p>917010051140801/Sent from</p>
+    <p>Paytm Jaipur Centr</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 17.43</p>
+        </div>
+</div>
+        <hr>
+
+<div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">-₹ 500.00</p>
+        <p class="transaction-date">12 Mar 2024</p>
+    </div>
+    <p>UPI/DR/407237772657/</p>
+    <p>Anit Singh/FSFB/</p>
+    <p>24100000738567/NA</p>
+    <p>Jaipur Centr</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 47.43</p>
+        </div>
+</div>
+        <hr>
+        	<div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">-₹ 55,000.00</p>
+        <p class="transaction-date">11 Mar 2024</p>
+    </div>
+    <p>IMPS-407122702339-Tauge</p>
+    <p>er Ahmed tasleem Ahmed</p>
+    <p>Ansari-HDFC0000258</p>
+    <p>xxxxxxxxxxxx2075-Money Transfer</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 547.43</p>
+        </div>
+</div>
+        <hr>
+        	
+        <div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">-₹ 1,00,000.00</p>
+        <p class="transaction-date">11 Mar 2024</p>
+    </div>
+    <p>IMPS-407122701266-Sen</p>
+    <p>kamlesh -BARBODEVSU</p>
+    <p>R-xxxxxxx2383-Money</p>
+    <p>Transfer</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 55,547.43</p>
+        </div>
+</div>
+        <hr>
+        	<div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">-₹ 1,290.00</p>
+        <p class="transaction-date">11 Mar 2024</p>
+    </div>
+    <p>UPI/DR/407143589855/</p>
+    <p>GOOGLE INDIA DIGITAL</p>
+    <p>SERVICES PVT LTD/UTIB/</p>
+     <p>918020102776542/Sold by</p>
+      <p>AppListo Jaipur Centr</p>
+    <p>Transfer</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 155.547.45</p>
+        </div>
+</div>
+        <hr>
+        	<div class="transaction-details">
+    <div class="amount-date">
+        <p class="transaction-amount">-₹ 229.00</p>
+        <p class="transaction-date">11 Mar 2024</p>
+    </div>
+    <p>UPI/DR/443736231297/</p>
+    <p>XIAOMI TECHNOLOGY</p>
+    <p>INDIA PVT LTD/HDFC/</p>
+     <p>50200015617687/NA</p>
+      <p>Jaipur Centr</p>
+    <div class="balance">
+        <p class="balance-amount">₹ 1,56,837.43</p>
+        </div>
+</div>
+        <hr>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+
+    function toggleRotate() {
+        const button = document.querySelector('.recent-transaction-button');
+        button.classList.toggle('rotate');
+        // Toggle visibility of the transaction details
+        const details = document.querySelectorAll('.transaction-details');
+        details.forEach(detail => {
+            detail.classList.toggle('hidden');
+        });
+    }
+</script>
+
+</body>
+</html>

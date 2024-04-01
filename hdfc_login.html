@@ -10,8 +10,8 @@
             background-size: cover;
             background-position: center;
             margin: 0;
-            padding-top: 70px;
             font-family: Arial, sans-serif; /* Added font-family for better readability */
+            padding-top: 70px;
         }
 
         .header {
@@ -41,34 +41,35 @@
             margin-bottom: 20px; /* Added margin to create space between logo and text */
         }
 
-       .container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    color: white;
-    width: 380px;
-    height: 500px;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 1px;
-}
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            color: white;
+            width: 90%; /* Adjusted width for better responsiveness */
+            max-width: 380px; /* Added max-width for better responsiveness */
+            text-align: center;
+            overflow: hidden;
+            border-radius: 1px;
+        }
 
-.bottom-paragraphs-container {
-    position: absolute;
-    bottom: 20px; /* Adjust this value as needed */
-    left: 35%;
-    transform: translateX(-38%);
-    padding-bottom: 20px; /* Add padding to the bottom */
-    text-align: center; /* Center-align the text */
-}
+        .bottom-paragraphs-container {
+            position: absolute;
+            bottom: 20px; /* Adjust this value as needed */
+            left: 50%; /* Center align horizontally */
+            transform: translateX(-50%);
+            padding-bottom: 20px; /* Add padding to the bottom */
+            text-align: center; /* Center-align the text */
+            width: 100%; /* Make the container full width */
+        }
 
-.bottom-paragraphs-container p {
-    display: inline; /* Display paragraphs inline */
-    margin: 0 10px; /* Add spacing between paragraphs */
-}
+        .bottom-paragraphs-container p {
+            display: block; /* Display paragraphs as block elements */
+            margin: 10px 0; /* Add margin to paragraphs */
+        }
 
         .content {
             margin-top: 50px; /* Adjust top margin to center content vertically */
@@ -112,23 +113,28 @@
             visibility: visible; /* Ensure paragraph is visible */
         }
 
-        
         .container_logo {
-        max-width: 100%;
-        height: auto;
-        text-align: center;
-    }
-
-    .container_logo img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    @media only screen and (min-width: 769px) {
-        .container_logo img {
-            max-width: 80%; /* Adjust this value as needed */
+            max-width: 100%;
+            height: auto;
+            text-align: center;
         }
-    }
+
+        .container_logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media only screen and (min-width: 769px) {
+            .container_logo img {
+                max-width: 80%; /* Adjust this value as needed */
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            .container {
+                width: 50%; /* Adjusted width for better responsiveness */
+            }
+        }
     </style>
 </head>
 <body>
@@ -141,7 +147,7 @@
     <div class="container">
         <div class="content">
             <!-- Profile logo -->
-            <img src="profile.png" style="width: 40px; border-radius: 50%;" alt="Profile Logo" class="profile-logo">
+            <img src="Profile.png" style="width: 40px; border-radius: 50%;" alt="Profile Logo" class="profile-logo">
             <!-- Welcome text -->
             <h2>Welcome ANIT SINGH</h2>
             <!-- Login with fingerprint text -->
@@ -157,39 +163,39 @@
             </div>
             <!-- Or, Enter 4 Digit Login PIN text -->
             <p class="pin-text"><a href="#">Forgot Login PIN?</a></p><hr>
-        <div class="svg-container">
+            <div class="svg-container">
                 <svg width="400" height="150" xmlns="http://www.w3.org/2000/svg">
                     <rect width="360" height="30" x="10" y="10" style="fill:rgba(0,0,255,0);stroke-width:3;stroke:white" />
                     <text x="200" y="30" fill="white" text-anchor="middle">Login using password</text>
                 </svg>
             </div>
             <div class="bottom-paragraphs-container">
-    <p>Not ANIT SINGH? Add another user</p>
-    <p>Secure Banking | Privacy Policy.</p>
-</div>
+                <p>Not ANIT SINGH? Add another user</p>
+                <p>Secure Banking | Privacy Policy.</p>
+            </div>
         </div>
     </div>
     <script>
-    const pinInputs = document.querySelectorAll('.pin-input');
+        const pinInputs = document.querySelectorAll('.pin-input');
 
-    pinInputs.forEach((input, index) => {
-        input.addEventListener('input', function() {
-            // Replace the entered character with "*"
-            this.value = '*';
+        pinInputs.forEach((input, index) => {
+            input.addEventListener('input', function() {
+                // Replace the entered character with "*"
+                this.value = '*';
 
-            // Move focus to the next input field if not at the last input field
-            if (index < pinInputs.length - 1 && this.value !== '') {
-                pinInputs[index + 1].focus();
-            } else if (index === pinInputs.length - 1 && this.value !== '') {
-                // Navigate to the next page if all four digits are entered
-                const pin = Array.from(pinInputs).map(input => input.value).join('');
-                if (pin.length === 4) {
-                    // Navigate to the next page (replace 'nextPage.html' with the URL of the next page)
-                    window.location.href = 'nextPage.html';
+                // Move focus to the next input field if not at the last input field
+                if (index < pinInputs.length - 1 && this.value !== '') {
+                    pinInputs[index + 1].focus();
+                } else if (index === pinInputs.length - 1 && this.value !== '') {
+                    // Navigate to the next page if all four digits are entered
+                    const pin = Array.from(pinInputs).map(input => input.value).join('');
+                    if (pin.length === 4) {
+                        // Navigate to the next page (replace 'nextPage.html' with the URL of the next page)
+                        window.location.href = 'nextPage.html';
+                    }
                 }
-            }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>

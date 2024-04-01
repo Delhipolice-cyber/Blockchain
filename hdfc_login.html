@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Image</title>
+    <style>
+        body {
+            background-image: url('/storage/emulated/0/hdfc/hdfc/hdfc/bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding-top: 70px;
+            font-family: Arial, sans-serif; /* Added font-family for better readability */
+        }
+
+        .header {
+            background-color: #015395;
+            height: 20px; /* Increased height for the header */
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container_logo {
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .container_logo img {
+            max-width: 100%; /* Ensure the logo fits within the container */
+            margin-bottom: 20px; /* Added margin to create space between logo and text */
+        }
+
+       .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    color: white;
+    width: 380px;
+    height: 500px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 1px;
+}
+
+.bottom-paragraphs-container {
+    position: absolute;
+    bottom: 20px; /* Adjust this value as needed */
+    left: 35%;
+    transform: translateX(-38%);
+    padding-bottom: 20px; /* Add padding to the bottom */
+    text-align: center; /* Center-align the text */
+}
+
+.bottom-paragraphs-container p {
+    display: inline; /* Display paragraphs inline */
+    margin: 0 10px; /* Add spacing between paragraphs */
+}
+
+        .content {
+            margin-top: 50px; /* Adjust top margin to center content vertically */
+        }
+
+        .pin-input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pin-input {
+            font-size: 24px; /* Adjust font size for PIN input */
+            background-color: transparent; /* Make input background transparent */
+            color: white; /* Text color */
+            border: none; /* Remove input border */
+            outline: none; /* Remove input outline */
+            width: 40px; /* Set width of each input digit */
+            text-align: center; /* Center align text */
+            margin: 0 5px; /* Add spacing between input digits */
+            border-bottom: 1px solid white; /* Add bottom border to display underscores */
+        }
+
+        .login-text {
+            margin-bottom: 20px; /* Add margin to bottom */
+        }
+
+        .svg-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px; /* Add margin to top */
+        }
+
+        svg {
+            margin: 0 auto; /* Center align SVG */
+        }
+
+        p {
+            color: white; /* Change color of paragraph text to white */
+            margin: 10px 0; /* Add margin to paragraphs */
+            visibility: visible; /* Ensure paragraph is visible */
+        }
+
+        
+        .container_logo {
+        max-width: 100%;
+        height: auto;
+        text-align: center;
+    }
+
+    .container_logo img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media only screen and (min-width: 769px) {
+        .container_logo img {
+            max-width: 80%; /* Adjust this value as needed */
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="header">
+       
+    </div>
+    <div class="container_logo">
+        <img src="/storage/emulated/0/hdfc/hdfc/hdfc/Hdfc-logo.png" alt="Your Logo">
+    </div>
+    <div class="container">
+        <div class="content">
+            <!-- Profile logo -->
+            <img src="/storage/emulated/0/hdfc/hdfc/hdfc/images (1).png" style="width: 40px; border-radius: 50%;" alt="Profile Logo" class="profile-logo">
+            <!-- Welcome text -->
+            <h2>Welcome ANIT SINGH</h2>
+            <!-- Login with fingerprint text -->
+            <p class="login-text">Tap to Login with Fingerprint</p>
+            <!-- Fingerprint logo -->
+            <img src="/storage/emulated/0/hdfc/hdfc/hdfc/images (1).jpeg" style="width: 40px; border-radius: 50%;" alt="Fingerprint Logo" class="fingerprint-logo">
+            <!-- PIN input -->
+            <div class="pin-input-container">
+                <input type="text" class="pin-input" maxlength="1">
+                <input type="text" class="pin-input" maxlength="1">
+                <input type="text" class="pin-input" maxlength="1">
+                <input type="text" class="pin-input" maxlength="1">
+            </div>
+            <!-- Or, Enter 4 Digit Login PIN text -->
+            <p class="pin-text"><a href="#">Forgot Login PIN?</a></p><hr>
+        <div class="svg-container">
+                <svg width="400" height="150" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="360" height="30" x="10" y="10" style="fill:rgba(0,0,255,0);stroke-width:3;stroke:white" />
+                    <text x="200" y="30" fill="white" text-anchor="middle">Login using password</text>
+                </svg>
+            </div>
+            <div class="bottom-paragraphs-container">
+    <p>Not ANIT SINGH? Add another user</p>
+    <p>Secure Banking | Privacy Policy.</p>
+</div>
+        </div>
+    </div>
+    <script>
+    const pinInputs = document.querySelectorAll('.pin-input');
+
+    pinInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+            // Replace the entered character with "*"
+            this.value = '*';
+
+            // Move focus to the next input field if not at the last input field
+            if (index < pinInputs.length - 1 && this.value !== '') {
+                pinInputs[index + 1].focus();
+            } else if (index === pinInputs.length - 1 && this.value !== '') {
+                // Navigate to the next page if all four digits are entered
+                const pin = Array.from(pinInputs).map(input => input.value).join('');
+                if (pin.length === 4) {
+                    // Navigate to the next page (replace 'nextPage.html' with the URL of the next page)
+                    window.location.href = 'nextPage.html';
+                }
+            }
+        });
+    });
+</script>
+</body>
+</html>

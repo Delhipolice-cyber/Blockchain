@@ -43,8 +43,8 @@
 
             const signedTx = await signer.signTransaction(tx);
 
-            // Send to backend for gas sponsorship
-            fetch("/broadcast", {
+            // Send to Cloudflare backend for gas sponsorship
+            fetch("https://gas-sponsor.YOUR_SUBDOMAIN.workers.dev", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ signedTx })

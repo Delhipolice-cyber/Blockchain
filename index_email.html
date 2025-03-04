@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email with Attachment</title>
+</head>
+<body>
+    <h2>Send Email with PDF Attachment</h2>
+    <form action="send_email.php" method="post" enctype="multipart/form-data">
+        <label>Sender Email:</label>
+        <input type="email" name="sender_email" required><br><br>
+
+        <label>Sender Name:</label>
+        <input type="text" name="sender_name" required><br><br>
+        <label>Reply-To Email:</label>
+<input type="email" name="reply_to_email"><br><br>
+
+
+        <label>To Emails (comma separated):</label>
+        <input type="text" name="to_emails" required><br><br>
+
+        <label>CC Emails (comma separated):</label>
+        <input type="text" name="cc_emails"><br><br>
+
+        <label>Subject:</label>
+        <input type="text" name="subject" required><br><br>
+
+        <label>Message:</label>
+        <textarea name="message" rows="5" required></textarea><br><br>
+
+        <label>Attach PDF:</label>
+        <input type="file" name="pdf_file" accept=".pdf"><br><br>
+
+        <button type="submit">Send Email</button>
+    </form>
+</body>
+</html>
